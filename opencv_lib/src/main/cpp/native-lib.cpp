@@ -3,17 +3,6 @@
 #include <opencv2/imgproc/types_c.h>
 #include "bitmap_utils.h"
 
-//extern "C" JNIEXPORT jstring JNICALL
-//Java_org_lynxz_opencvwrapper_MainActivity_stringFromJNI(
-//        JNIEnv *env,
-//        jobject /* this */) {
-//    std::string hello = "Hello from C++";
-//    return env->NewStringUTF(hello.c_str());
-//}
-
-
-
-
 extern "C"
 JNIEXPORT jobject JNICALL
 Java_org_lynxz_opencvwrapper_OpenCVWrapper_bitmap2GrayByCV(JNIEnv *env, jobject thiz, jobject bitmap,

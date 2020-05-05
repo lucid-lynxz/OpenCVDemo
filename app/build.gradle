@@ -11,7 +11,7 @@ android {
     defaultConfig {
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
-        applicationId "org.lynxz.opencvwrapper"
+        applicationId "org.lynxz.opencvdemor"
         versionCode 1
         versionName "1.0"
 

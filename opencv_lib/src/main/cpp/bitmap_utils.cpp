@@ -1,6 +1,5 @@
 #include "bitmap_utils.h"
 
-
 void bitmap2Mat(JNIEnv *env, jobject bitmap, Mat *mat, bool needPremultiplyAlpha) {
     AndroidBitmapInfo info;
     void *pixels = 0;

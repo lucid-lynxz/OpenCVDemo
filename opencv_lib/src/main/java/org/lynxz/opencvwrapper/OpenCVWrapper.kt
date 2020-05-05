@@ -3,7 +3,9 @@ package org.lynxz.opencvwrapper
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-
+/**
+ * 自行基于opencv功能封装其他能力
+ * */
 object OpenCVWrapper {
     init {
         System.loadLibrary("lynxzCV")
@@ -54,6 +56,7 @@ object OpenCVWrapper {
 
     /**
      * 使用opencv库对图片置灰
+     * 参考: https://juejin.im/post/5d46d1e8e51d45620541034c
      * */
     fun bitmap2GrayByCV(context: Context, drawableResId: Int, config: Bitmap.Config): Bitmap? {
         return bitmap2GrayByCV(

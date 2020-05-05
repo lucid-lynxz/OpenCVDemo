@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
+
+    defaultConfig {
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        if (use_androidx) {
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        } else {
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        }
+
+        // 报错: library "libc++_shared.so" not found
+        // 解决方案: https://blog.csdn.net/Fozei/article/details/103676970
+        // 此处直接添加cmake编译脚本
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++14"
+                arguments "-DANDROID_STL=c++_shared" // 使用c++_shared.so
+                abiFilters 'armeabi-v7a'
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs += ['src/main/jniLibs/']
+        }
+    }
+
+    dependencies {
+        compileOnly(libs.kotlinLib)
+    }
+}

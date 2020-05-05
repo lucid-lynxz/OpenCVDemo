@@ -1,2 +1,3 @@
 rootProject.name='OpenCVWrapper'
 include ':app'
+include ':opencv_lib'

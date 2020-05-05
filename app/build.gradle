@@ -20,7 +20,17 @@ android {
         } else {
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         }
+
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
     }
+
+//    sourceSets {
+//        main {
+//            jniLibs.srcDirs += ['src/main/jniLibs/']
+//        }
+//    }
 
     buildTypes {
         debug {
@@ -38,6 +48,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation(test.junit)
     implementation(libs.kotlinLib)
+    api project(path: ":opencv_lib")
 
     if (use_androidx) {
         androidTestImplementation(test.junitExtX)
